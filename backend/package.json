@@ -1,0 +1,19 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "backend for spinach",
+  "keywords": [
+    "spinach"
+  ],
+  "license": "ISC",
+  "author": "rishikaa",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon -r dotenv/config --experimental-json-modules src/index.js"
+  },
+  "dependencies": {
+    "nodemon": "^3.1.14",
+    "prettier": "^3.9.6"
+  }
+}
