@@ -7,5 +7,4 @@ class ApiResponse{
     }
 }
 
-// export nhi krna?, ab kr dia
 export {ApiResponse}
