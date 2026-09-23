@@ -16,8 +16,10 @@ app.use(cookieParser())
 
 //routes import:
 import userRouter from './routes/user.routes.js'
+import storyRouter from './routes/story.routes.js'
 
 //routes declaration:
 app.use("/api/v1/users", userRouter)
+app.use("/api/v1/stories", storyRouter)
 
 export default app
