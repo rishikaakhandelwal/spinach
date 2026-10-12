@@ -18,5 +18,6 @@ router.route("/upload-image").post(verifyJwt, uploadLocal.single("image"), uploa
 router.route("/update-story/:storyId").patch(verifyJwt, updateStory)
 router.route("/publish-story/:storyId").patch(verifyJwt, publishStory)
 router.route("/archive-story/:storyId").patch(verifyJwt, archiveStory)
+router.route("/view-story/:storyId").get(verifyJwt, viewStory) //to kya ab non logged in user story dekh payega?
 
 export default router

@@ -29,18 +29,18 @@ const userSchema = new mongoose.Schema({
     avatar: {
         type: String
     },
-    savedLists: [
-        {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "lists"
-        }
-    ],
-    reposts: [
-        {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "stories"
-        }
-    ]
+    // savedLists: [
+    //     {
+    //         type: mongoose.Schema.Types.ObjectId,
+    //         ref: "lists"
+    //     }
+    // ],
+    // reposts: [
+    //     {
+    //         type: mongoose.Schema.Types.ObjectId,
+    //         ref: "stories"
+    //     }
+    // ]
 }, {timestamps: true})
 
 //pass save krne se pehle use hash kr lo
