@@ -14,10 +14,11 @@ const storySchema = new mongoose.Schema({
         enum: ['draft', 'published', 'archived'],
         default: 'draft'
     },
-    views: {
-        type: Number,
-        default: 0
-    },
+    // views: {
+    //     type: Number,
+    //     default: 0
+    // },
+    //agar chahiye ho to laga skte ho, vrna rehne do
     publishedAt: {
         type: Date
     },

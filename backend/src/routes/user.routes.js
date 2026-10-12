@@ -12,6 +12,6 @@ router.route("/update-password").patch(verifyJwt, updatePassword)
 router.route("/update-profile").patch(verifyJwt, updateProfile)
 router.route("/delete-account").delete(verifyJwt, deleteAccount)
 router.route("/logout").get(verifyJwt, logout)
-router.route("/update-avatar").patch(verifyJwt, uploadLocal(avatar), updateAvatar)
+router.route("/update-avatar").patch(verifyJwt, uploadLocal.single("avatar"), updateAvatar)
 
 export default router

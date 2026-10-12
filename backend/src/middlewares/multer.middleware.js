@@ -1,6 +1,6 @@
 import multer from "multer"
 
-const uploadLocal = multer({dest: '../../public/temp'})
+const uploadLocal = multer({dest: './public/temp'})
 
 export default uploadLocal
 

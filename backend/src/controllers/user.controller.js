@@ -2,6 +2,7 @@ import { User } from '../models/user.model.js'
 import { ApiError } from '../utils/apiError.utils.js'
 import { ApiResponse } from '../utils/apiResponse.utils.js'
 import { asyncHandler } from '../utils/asyncHandler.utils.js'
+import uploadOnCloudinary from "../utils/cloudinary.utils.js"
 
 const generateAccessAndRefreshTokens = async (userId) => {
     try {
@@ -147,14 +148,25 @@ const deleteAccount = asyncHandler(async (req, res) => {
 })
 
 const updateAvatar = asyncHandler(async (req, res) => {
+    const avatarLocalPath = req.file?.path
+    if(!avatarLocalPath) throw new ApiError(400, "Please provide avatar file.");
 
-})
+    const avatar = await uploadOnCloudinary(avatarLocalPath)
+    if(!avatar.url) throw new ApiError(500, "Could not upload the avatar file.");
 
-const getSavedLists = asyncHandler(async (req, res) => {
+    const userProfile = await User.findByIdAndUpdate(
+        req.user?._id,
+        {
+            avatar: avatar.url
+        },
+        {
+            new: true
+        }
+    ).select("-password -refreshToken")//refresh token nahi hatana?
 
-})
-
-const getReposts = asyncHandler(async (req, res) => {
+    return res
+    .status(200)
+    .json(new ApiResponse(200, userProfile, "Avatar updated."))
 
 })
 
@@ -189,7 +201,5 @@ export {
     updateProfile,
     deleteAccount,
     updateAvatar,
-    getSavedLists,
-    getReposts,
     logout
 }
